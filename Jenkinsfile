@@ -1,26 +1,26 @@
 pipeline{
-  any agent
+  agent any
   tools{
     maven 'Maven'
     }
   stages{
     stage('checkout'){
-      step{
+      steps{
       git branch:'master' ,url:'https://github.com/srushtiiik/examaven.git'
       }
      }
     stage('build'){
-      step{
+      steps{
        sh 'mvn clean package'
        }
       }
     stage('deploy'){
-      step{
+      steps{
        sh 'mvn test'
        }
        }
     stage ('run'){
-      step{
+      steps{
         sh 'java -jar target/exmmaven-1.0-SNAPSHOT.jar'
         }
        }
