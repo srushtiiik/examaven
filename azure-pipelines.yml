@@ -1,0 +1,14 @@
+trigger:
+- master
+
+pool:
+  name: Default
+
+steps:
+- script: echo "my first azure"
+  displayName: 'build with one line'
+- script: mvn clean install
+  displayName: 'installing'
+- script: java -jar target/exmmaven-1.0-SNAPSHOT.jar
+  displayName: 'running jar'
+  
